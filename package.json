@@ -1,0 +1,50 @@
+{
+  "name": "aionomica",
+  "version": "0.0.1",
+  "description": "NFT contracts for artistic texts (e.g. screenplays, books, plays...) ",
+  "main": "index.ts",
+  "scripts": {
+    "a": "npx buidler typechain",
+    "build": "TS_NODE_FILES=true npm run compile && npx buidler typechain",
+    "compile": "npx buidler compile",
+    "coverage": "npm run build && npx buidler coverage --temp artifacts --network coverage",
+    "test": "TS_NODE_TRANSPILE_ONLY=1 npx buidler test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmj16/aionomica.git"
+  },
+  "keywords": [
+    "ethereum",
+    "solidity",
+    "typescript",
+    "ethers"
+  ],
+  "author": "david josephs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmj16/aionomica/issues"
+  },
+  "homepage": "https://github.com/dmj16/aionomica#readme",
+  "devDependencies": {
+    "@nomiclabs/buidler": "^1.4.3",
+    "@nomiclabs/buidler-ethers": "^2.0.0",
+    "@nomiclabs/buidler-waffle": "^2.0.0",
+    "@typechain/ethers-v5": "^1.0.0",
+    "@types/chai": "^4.2.12",
+    "@types/mocha": "^8.0.2",
+    "@types/node": "^14.0.27",
+    "chai": "^4.2.0",
+    "ethereum-waffle": "^3.0.2",
+    "ethers": "^5.0.8"
+  },
+  "dependencies": {
+    "@typechain/ethers-v4": "^1.0.1",
+    "@typechain/truffle-v4": "^2.0.3",
+    "@typechain/truffle-v5": "^2.0.2",
+    "@typechain/web3-v1": "^1.0.0",
+    "buidler-typechain": "^0.1.1",
+    "ts-generator": "0.0.8",
+    "typechain": "^2.0.0"
+  }
+}
