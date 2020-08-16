@@ -1,0 +1,6 @@
+{
+  "name": "{name}",
+  "description": "{description}",
+  "image": "{image}",
+  "type": "{id}"
+}

@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "rich_property": {
+      "name": "Name",
+      "value": "{id}",
+      "display_value": "123 Example Value",
+      "class": "emphasis",
+      "css": {
+        "color": "#ffffff",
+        "font-weight": "bold",
+        "text-decoration": "underline"
+      }
+    },
+    "array_property": {
+      "name": "Name",
+      "value": [1, 2, 3, 4],
+      "class": "emphasis"
+    }
+  }
+}

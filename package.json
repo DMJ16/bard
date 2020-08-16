@@ -1,7 +1,7 @@
 {
   "name": "aionomica",
   "version": "0.0.1",
-  "description": "NFT contracts for artistic texts (e.g. screenplays, books, plays...) ",
+  "description": "Tokenized artistic works (e.g. screenplays, books, plays...)",
   "main": "index.ts",
   "scripts": {
     "a": "npx buidler typechain",
@@ -36,9 +36,12 @@
     "@types/node": "^14.0.27",
     "chai": "^4.2.0",
     "ethereum-waffle": "^3.0.2",
-    "ethers": "^5.0.8"
+    "ethers": "^5.0.8",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
   },
   "dependencies": {
+    "@openzeppelin/contracts": "^3.1.0",
     "@typechain/ethers-v4": "^1.0.1",
     "@typechain/truffle-v4": "^2.0.3",
     "@typechain/truffle-v5": "^2.0.2",
