@@ -6,3 +6,4 @@ artifacts/
 coverage*
 .env
 package-lock.json
+ipfs/metadata/

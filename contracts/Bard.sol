@@ -1,4 +1,3 @@
-//SPDX-License-Identifier: Unlicense
 pragma solidity ^0.6.8;
 import "@nomiclabs/buidler/console.sol";
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
@@ -14,7 +13,9 @@ contract Bard is ERC1155 {
     mapping(uint256 => uint256) public tokenSupply;
     string public name;
     string public symbol;
-    string private uri;
+    string private _uri;
+    uint256
+        private constant PACK_INDEX = 0x00000000000000000000000000000000000000000000000000000000000007FF;
     address public proxyRegistryAddress;
 
     modifier creatorsOnly(uint256 _id) {
@@ -49,8 +50,8 @@ contract Bard is ERC1155 {
         string memory _symbol,
         uint256[] memory _idValues,
         address _proxyRegistryAddress,
-        string memory _uri
-    ) public valuesInRange(_idValues) ERC1155(_uri) {
+        string memory _newuri
+    ) public valuesInRange(_idValues) ERC1155(_newuri) {
         for (uint256 i = 0; i < _idValues.length; i++) {
             creators[_idValues[i]].push(msg.sender);
         }
@@ -68,24 +69,59 @@ contract Bard is ERC1155 {
         tokenSupply[_id] = _amount;
     }
 
-    function mintBatch(uint256[] memory _ids, uint256[] memory _amount)
+    function mintBatch(uint256[] memory _ids, uint256[] memory _amounts)
         public
         valuesInRange(_ids)
     {
-        _mintBatch(msg.sender, _ids, _amount, "");
+        _mintBatch(msg.sender, _ids, _amounts, "");
+        for (uint256 i = 0; i < _ids.length; i++) {
+            tokenSupply[_ids[i]] = _amounts[i];
+        }
     }
-    // function setURI(string memory _newuri, uint256 _id)
-    //     public
-    //     creatorsOnly(_id)
-    // {
-    //     _setURI(_newuri);
-    // }
 
-    // function burn(address _owner, uint256 _id, uint256 _value) public {
-    //     _burn(_owner, _id, _value);
-    // }
+    function uint2str(uint256 _i)
+        private
+        pure
+        returns (string memory _uintAsString)
+    {
+        if (_i == 0) {
+            return "0";
+        }
 
-    // function burnBatch(address _owner, uint256[] memory _ids, uint256[] memory _values) public {
-    //     _burnBatch(_owner, _ids, _values);
-    // }
+        uint256 j = _i;
+        uint256 len;
+        while (j != 0) {
+            len++;
+            j /= 10;
+        }
+
+        bytes memory bstr = new bytes(len);
+        uint256 k = len - 1;
+        while (_i != 0) {
+            bstr[k--] = bytes1(uint8(48 + (_i % 10)));
+            _i /= 10;
+        }
+
+        return string(bstr);
+    }
+
+    function toFullURI(string memory uri, uint256 _id)
+        internal
+        pure
+        returns (string memory)
+    {
+        return
+            string(
+                abi.encodePacked(uri, "/", uint2str(_id & PACK_INDEX), ".json")
+            );
+    }
+
+    function getURI(string memory uri, uint256 _id)
+        public
+        view
+        creatorsOnly(_id)
+        returns (string memory)
+    {
+        return toFullURI(uri, _id);
+    }
 }

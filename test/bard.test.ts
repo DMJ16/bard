@@ -4,7 +4,6 @@ import chai from "chai";
 import { solidity, deployContract } from "ethereum-waffle";
 import BardArtifact from "../artifacts/Bard.json";
 import { Bard } from "../typechain/Bard";
-import { sign } from "crypto";
 
 chai.use(solidity);
 const { expect } = chai;
@@ -20,8 +19,8 @@ describe("Bard", () => {
       "Bard",
       "BARD",
       [0, 1, 2, 3, 4],
-      "0xf57b2c51ded3a29e6891aba85459d600256cf317",
-      "https://ipfs.io/ipfs/QmQpo6aBNWWxV7Zzdp7dUsHnfC5qQqjWyED15kiP7JrrQh?filename=bard.json",
+      process.env.REGISTRY,
+      process.env.METADATA_URI,
     ]);
   });
 
@@ -45,5 +44,35 @@ describe("Bard", () => {
     expect(batch[3]).to.eq(1);
   });
 
-  it("has unique URI metadata for each token", async () => {});
+  it("has unique URI metadata for each token", async () => {
+    const urlArr = [
+      await bard.uri(0),
+      await bard.uri(1),
+      await bard.uri(2),
+      await bard.uri(3),
+      await bard.uri(4),
+    ];
+
+    const [uri_0, uri_1, uri_2, uri_3, uri_4] = await Promise.all(urlArr);
+
+    const getURI = [
+      bard.getURI(uri_0, 0),
+      bard.getURI(uri_1, 1),
+      bard.getURI(uri_2, 2),
+      bard.getURI(uri_3, 3),
+      bard.getURI(uri_4, 4),
+    ];
+
+    const [album, song, video, screenplay, book] = await Promise.all(getURI);
+
+    expect(album).to.eq(`${process.env.METADATA_URI}/0.json`);
+
+    expect(song).to.eq(`${process.env.METADATA_URI}/1.json`);
+
+    expect(video).to.eq(`${process.env.METADATA_URI}/2.json`);
+
+    expect(screenplay).to.eq(`${process.env.METADATA_URI}/3.json`);
+
+    expect(book).to.eq(`${process.env.METADATA_URI}/4.json`);
+  });
 });

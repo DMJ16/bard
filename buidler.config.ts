@@ -1,10 +1,25 @@
 import { BuidlerConfig, usePlugin } from "@nomiclabs/buidler/config";
 usePlugin("@nomiclabs/buidler-waffle");
 usePlugin("buidler-typechain");
+require("dotenv").config();
+
 const config: BuidlerConfig = {
   defaultNetwork: "buidlerevm",
   solc: {
     version: "0.6.8",
+  },
+  networks: {
+    buidlerevm: {
+      throwOnCallFailures: true,
+    },
+    rinkeby: {
+      url: process.env.INFURA,
+      accounts: [process.env.RINKEBY as string],
+    },
+  },
+  etherscan: {
+    url: "https://api-rinkeby.etherscan.io/api",
+    apiKey: process.env.ETHERSCAN as string,
   },
   typechain: {
     outDir: "typechain",
@@ -12,32 +27,3 @@ const config: BuidlerConfig = {
   },
 };
 export default config;
-
-// import { task, usePlugin, BuidlerConfig } from "@nomiclabs/buidler/config";
-// usePlugin("@nomiclabs/buidler-waffle");
-// usePlugin("buidler-typechain");
-
-// task("accounts", "Prints the list of accounts", async (taskArgs, bre) => {
-//   const accounts = await bre.ethers.getSigners();
-
-//   for (const account of accounts) {
-//     console.log(await account.getAddress());
-//   }
-// });
-
-// const config: BuidlerConfig = {};
-
-// export default config;
-
-// const { BuidlerConfig, usePlugin } = require("@nomiclabs/buidler/config");
-// usePlugin("@nomiclabs/buidler-waffle");
-// usePlugin("buidler-typechain");
-// module.exports = {
-//   solc: {
-//     version: "0.5.15",
-//   },
-//   typechain: {
-//     outDir: "typechain",
-//     target: "ethers-v4",
-//   },
-// };
