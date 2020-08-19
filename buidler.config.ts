@@ -11,6 +11,7 @@ const config: BuidlerConfig = {
   networks: {
     buidlerevm: {
       throwOnCallFailures: true,
+      throwOnTransactionFailures: true,
     },
     rinkeby: {
       url: process.env.INFURA,

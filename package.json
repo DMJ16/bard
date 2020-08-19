@@ -1,5 +1,5 @@
 {
-  "name": "aionomica",
+  "name": "bard",
   "version": "0.0.1",
   "description": "Tokenized artistic works (e.g. screenplays, books, plays...)",
   "main": "index.ts",
@@ -19,7 +19,7 @@
     "zeppelin"
   ],
   "author": "david josephs",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dmj16/bard/issues"
   },

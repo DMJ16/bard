@@ -1,6 +1,32 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.6.8;
 import "@nomiclabs/buidler/console.sol";
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
+
+contract BardFactory {
+    Bard[] public deployedBards;
+
+    function createBard(
+        string memory _contractName,
+        string memory _contractSymbol,
+        uint256[] memory _idValues,
+        address _deployerAddress,
+        string memory _newuri
+    ) public {
+        Bard newBard = new Bard(
+            _contractName,
+            _contractSymbol,
+            _idValues,
+            _deployerAddress,
+            _newuri
+        );
+        deployedBards.push(newBard);
+    }
+
+    function getDeployedBards() public view returns (Bard[] memory) {
+        return deployedBards;
+    }
+}
 
 contract Bard is ERC1155 {
     uint256 public constant ALBUM = 0;
@@ -13,19 +39,40 @@ contract Bard is ERC1155 {
     mapping(uint256 => uint256) public tokenSupply;
     string public name;
     string public symbol;
+    address private _creator;
     string private _uri;
     uint256
         private constant PACK_INDEX = 0x00000000000000000000000000000000000000000000000000000000000007FF;
-    address public proxyRegistryAddress;
 
     modifier creatorsOnly(uint256 _id) {
-        address creator;
+        bool isCreator = false;
         for (uint256 i = 0; i < creators[_id].length; i++) {
             if (creators[_id][i] == msg.sender) {
-                creator = creators[_id][i];
+                isCreator = true;
+                break;
             }
         }
-        require(msg.sender == creator);
+        require(isCreator);
+        _;
+    }
+
+    modifier creatorsOnlyMultiID(uint256[] memory _ids) {
+        uint256 i = 0;
+        uint256 j = 0;
+        uint256 count = 0;
+        while (i < _ids.length && j < creators[_ids[i]].length) {
+            if (count == _ids.length) {
+                break;
+            }
+            if (creators[_ids[i]][j] == msg.sender) {
+                count++;
+                i++;
+                j = 0;
+            } else {
+                j++;
+            }
+        }
+        require(count == _ids.length);
         _;
     }
 
@@ -34,30 +81,36 @@ contract Bard is ERC1155 {
         _;
     }
 
-    modifier valuesInRange(uint256[] memory _values) {
-        bool tester = true;
+    modifier idValuesInRange(uint256[] memory _values) {
+        bool valueInRange = true;
         for (uint256 i = 0; i < _values.length; i++) {
             if (_values[i] < 0 || _values[i] > 4) {
-                tester = false;
+                valueInRange = false;
             }
         }
-        require(tester == true);
+        require(valueInRange == true);
         _;
     }
 
     constructor(
-        string memory _name,
-        string memory _symbol,
+        string memory _contractName,
+        string memory _contractSymbol,
         uint256[] memory _idValues,
-        address _proxyRegistryAddress,
-        string memory _newuri
-    ) public valuesInRange(_idValues) ERC1155(_newuri) {
+        address _deployerAddress,
+        string memory _newURI
+    ) public idValuesInRange(_idValues) ERC1155(_newURI) {
+        _creator = _deployerAddress;
+        setCreators(_creator, _idValues);
+        name = _contractName;
+        symbol = _contractSymbol;
+    }
+
+    function setCreators(address _deployerAddress, uint256[] memory _idValues)
+        private
+    {
         for (uint256 i = 0; i < _idValues.length; i++) {
-            creators[_idValues[i]].push(msg.sender);
+            creators[_idValues[i]].push(_deployerAddress);
         }
-        name = _name;
-        symbol = _symbol;
-        proxyRegistryAddress = _proxyRegistryAddress;
     }
 
     function mint(uint256 _id, uint256 _amount)
@@ -71,12 +124,25 @@ contract Bard is ERC1155 {
 
     function mintBatch(uint256[] memory _ids, uint256[] memory _amounts)
         public
-        valuesInRange(_ids)
+        idValuesInRange(_ids)
+        creatorsOnlyMultiID(_ids)
     {
         _mintBatch(msg.sender, _ids, _amounts, "");
         for (uint256 i = 0; i < _ids.length; i++) {
             tokenSupply[_ids[i]] = _amounts[i];
         }
+    }
+
+    function getURI(string memory uri, uint256 _id)
+        public
+        pure
+        returns (string memory)
+    {
+        return toFullURI(uri, _id);
+    }
+
+    function setURI(string memory _newURI) public {
+        _setURI(_newURI);
     }
 
     function uint2str(uint256 _i)
@@ -114,14 +180,5 @@ contract Bard is ERC1155 {
             string(
                 abi.encodePacked(uri, "/", uint2str(_id & PACK_INDEX), ".json")
             );
-    }
-
-    function getURI(string memory uri, uint256 _id)
-        public
-        view
-        creatorsOnly(_id)
-        returns (string memory)
-    {
-        return toFullURI(uri, _id);
     }
 }
