@@ -22,13 +22,8 @@ beforeEach(async () => {
   deployer = <Wallet>signers[0];
   deployerAddress = await deployer.getAddress();
   bardFactory = await deployContract(deployer, BardFactoryArtifact);
-  await bardFactory.createBard(
-    "Bard",
-    "BARD",
-    [0, 1, 2, 3, 4],
-    deployerAddress,
-    process.env.METADATA_URI
-  );
+  await bardFactory.createBard("Bard", "BARD", process.env.METADATA_URI);
+  await bardFactory.createBard("Bard", "BARD", process.env.METADATA_URI);
   [bardAddress] = await bardFactory.getDeployedBards();
   bard = new ethers.Contract(bardAddress, BardArtifact.abi, deployer);
 });
@@ -41,24 +36,29 @@ describe("Bard", () => {
   });
 
   it("batch mints multiple tokens", async () => {
-    await bard.mintBatch([1, 2, 3, 4], [10 ** 6, 10 ** 5, 10 ** 4, 1]);
-    const batch = await bard.balanceOfBatch(
-      [deployerAddress, deployerAddress, deployerAddress, deployerAddress],
-      [1, 2, 3, 4]
-    );
-    expect(batch[0]).to.eq(10 ** 6);
-    expect(batch[1]).to.eq(10 ** 5);
-    expect(batch[2]).to.eq(10 ** 4);
-    expect(batch[3]).to.eq(1);
+    const async = [
+      await bard.mintBatch([1, 2, 3, 4], [10 ** 6, 10 ** 5, 10 ** 4, 1]),
+      await bard.balanceOfBatch(
+        [deployerAddress, deployerAddress, deployerAddress, deployerAddress],
+        [1, 2, 3, 4]
+      ),
+    ];
+
+    const [_, balance] = await Promise.all(async);
+
+    expect(balance[0]).to.eq(10 ** 6);
+    expect(balance[1]).to.eq(10 ** 5);
+    expect(balance[2]).to.eq(10 ** 4);
+    expect(balance[3]).to.eq(1);
   });
 
   it("has unique URI metadata for each token", async () => {
     const urlArr = [
-      await bard.uri(0),
-      await bard.uri(1),
-      await bard.uri(2),
-      await bard.uri(3),
-      await bard.uri(4),
+      bard.uri(0),
+      bard.uri(1),
+      bard.uri(2),
+      bard.uri(3),
+      bard.uri(4),
     ];
 
     const [uri_0, uri_1, uri_2, uri_3, uri_4] = await Promise.all(urlArr);
