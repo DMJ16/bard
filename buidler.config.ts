@@ -7,11 +7,16 @@ const config: BuidlerConfig = {
   defaultNetwork: "buidlerevm",
   solc: {
     version: "0.6.8",
+    optimizer: {
+      enabled: true,
+      runs: 200,
+    },
   },
   networks: {
     buidlerevm: {
       throwOnCallFailures: true,
       throwOnTransactionFailures: true,
+      blockGasLimit: 6721975,
     },
     rinkeby: {
       url: process.env.INFURA,
