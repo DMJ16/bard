@@ -1,5 +1,6 @@
 import { BuidlerConfig, usePlugin } from "@nomiclabs/buidler/config";
 usePlugin("@nomiclabs/buidler-waffle");
+usePlugin("@nomiclabs/buidler-etherscan");
 usePlugin("buidler-typechain");
 require("dotenv").config();
 
