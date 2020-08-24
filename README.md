@@ -6,7 +6,7 @@
 
 #### 🍬 🎤 🎥 🎨 📚
 
-Merkwood is a tokenization service for artists and content creators to wrap their art for sale.
+Merkwood is a tokenization service for artists and content creators to securely wrap their art.
 
 #### 🌲🍄🌳
 
@@ -18,8 +18,8 @@ A content creator might use Merkwood to instantiate a **_Bard_**--an ERC1155 mul
 
 #### 🏟️
 
-There is also an opportunity to better engage with fans by selling direct-to-consumer.
+Opportunity to more closely engage with fans by selling direct-to-consumer.
 
 #### 🗳️
 
-Additionally, there is a proof-of-concept Rinkeby testnet DAO--AuthorDAO. Each member could proportionally participate in the governance of a service such as a distributed content distribution platform.
+There is a proof-of-concept Rinkeby testnet DAO--AuthorDAO. Each member could proportionally participate in the governance of a service such as a distributed content distribution platform.
