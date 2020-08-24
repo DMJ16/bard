@@ -1,7 +1,7 @@
 {
   "name": "bard",
   "version": "0.0.1",
-  "description": "Tokenized artistic works (e.g. screenplays, books, plays...)",
+  "description": "ERC1155 contract for tokenizing artistic works.",
   "main": "index.ts",
   "scripts": {
     "build": "npm run compile && npx buidler typechain",
@@ -37,7 +37,6 @@
     "@types/chai": "^4.2.12",
     "@types/mocha": "^8.0.3",
     "@types/node": "^14.6.0",
-    "@types/react": "^16.9.46",
     "@types/react-dom": "^16.9.8",
     "chai": "^4.2.0",
     "dotenv": "^8.2.0",
@@ -56,6 +55,7 @@
     "@typechain/truffle-v5": "^2.0.2",
     "@typechain/web3-v1": "^1.0.0",
     "@types/hookrouter": "^2.2.3",
+    "@types/react": "^16.9.46",
     "axios": "^0.20.0",
     "buidler-typechain": "^0.1.1",
     "hookrouter": "^1.2.3",

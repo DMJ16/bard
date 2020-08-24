@@ -5,8 +5,6 @@
     "jsx": "react",
     "moduleResolution": "node",
     "lib": ["dom", "ES5", "ES2015"],
-    // "outDir": "./",
-    // "rootDir": "./",
     "noEmit": true,
     "isolatedModules": true,
 
