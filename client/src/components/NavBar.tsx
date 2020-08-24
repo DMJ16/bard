@@ -22,7 +22,7 @@ export default function NavBar() {
 
           <Button onClick={handleComposeClick}>
             <Typography variant='h4'>
-              🎭🎨🎥🎤 Compose a Bard 🎤🎥🎨🎭
+              📚🎨🎥🎤 Compose a Bard 🎤🎥🎨📚
             </Typography>
           </Button>
           <IconButton>
