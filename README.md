@@ -6,7 +6,7 @@
 
 #### 🍬 🎤 🎥 🎨 📚
 
-Merkwood is a tokenization service for artists and content creators to securely wrap their art.
+Merkwood is a tokenization service for artists and content creators to securely digitize their art.
 
 #### 🌲🍄🌳
 
