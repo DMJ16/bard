@@ -20,7 +20,7 @@ const config: BuidlerConfig = {
       blockGasLimit: 6721975,
     },
     rinkeby: {
-      url: process.env.INFURA,
+      url: `https://rinkeby.infura.io/v3/${process.env.INFURA}`,
       accounts: [process.env.RINKEBY as string],
     },
   },

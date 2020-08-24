@@ -48,12 +48,17 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "@openzeppelin/contracts": "^3.1.0",
     "@typechain/ethers-v4": "^1.0.1",
     "@typechain/truffle-v4": "^2.0.3",
     "@typechain/truffle-v5": "^2.0.2",
     "@typechain/web3-v1": "^1.0.0",
+    "@types/hookrouter": "^2.2.3",
+    "axios": "^0.20.0",
     "buidler-typechain": "^0.1.1",
+    "hookrouter": "^1.2.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "ts-generator": "0.0.8",
