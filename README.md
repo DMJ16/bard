@@ -10,7 +10,7 @@ Merkwood is a tokenization service for artists and content creators to securely 
 
 #### 🌲🍄🌳
 
-Merkwood is a reference to Tolkien's magical forest **_Mirkwood_**, but with the "i" swapped with "e" as a nod to the Merkle Patricia Tree.
+Merkwood is a reference to Tolkien's magical forest **_Mirkwood_**, but with the "i" swapped with an "e" as a nod to the Merkle Patricia Tree.
 
 #### 🔏
 
