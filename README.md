@@ -4,7 +4,7 @@
 
 <br/>
 
-#### 🍬🎤🎥🎨📚
+#### 🍬 🎤 🎥 🎨 📚
 
 Merkwood is a tokenization service for artists and content creators to wrap their art for sale.
 
