@@ -12,6 +12,9 @@
     "verify:factory": "npx buidler verify-contract --contract-name BardFactory --address 0xA89eeB0D82f06e1f0E28d80440EEE63E51720A92",
     "start": "parcel client/public/index.html"
   },
+  "browserslist": [
+    "last 1 Chrome version"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dmj16/bard.git"
@@ -47,6 +50,8 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.35",
+    "@emotion/styled": "^10.0.27",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@openzeppelin/contracts": "^3.1.0",
@@ -58,6 +63,7 @@
     "@types/react": "^16.9.46",
     "axios": "^0.20.0",
     "buidler-typechain": "^0.1.1",
+    "crypto-ts": "^1.0.2",
     "hookrouter": "^1.2.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

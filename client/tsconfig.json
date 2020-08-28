@@ -4,7 +4,7 @@
     "module": "commonjs",
     "jsx": "react",
     "moduleResolution": "node",
-    "lib": ["dom", "ES5", "ES2015"],
+    "lib": ["dom", "ES6", "ES2015"],
     "noEmit": true,
     "isolatedModules": true,
 

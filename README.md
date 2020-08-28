@@ -1,6 +1,6 @@
 # Merkwood 🌲🍄🌳
 
-#### Node.js | TypeScript | Solidity | OpenZeppelin | Buidler | TypeChain | Ethers | IPFS | React | Emotion
+#### Node.js | TypeScript | Solidity | OpenZeppelin | Buidler | TypeChain | Ethers | IPFS
 
 <br/>
 
@@ -10,7 +10,7 @@ Merkwood is a tokenization service for artists and content creators to wrap thei
 
 #### 🌲🍄🌳
 
-Merkwood is a reference to Tolkien's magical forest **_Mirkwood_**, but with the "i" swapped with "e" as a nod to the Merkle Patricia Tree.
+Merkwood is a reference to Tolkien's magical forest **_Mirkwood_**, but with the "i" swapped with an "e" as a nod to the Merkle Patricia Tree.
 
 #### 🔏
 
@@ -18,7 +18,7 @@ A content creator might use Merkwood to instantiate a **_Bard_**--an ERC1155 mul
 
 #### 🏟️
 
-There is also an opportunity to better engage with fans by selling direct-to-consumer.
+There is also an opportunity to better engage with fans by selling direct-to-consumer. A react front-end is in development.
 
 #### 🗳️
 
