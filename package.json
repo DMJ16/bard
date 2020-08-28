@@ -1,5 +1,5 @@
 {
-  "name": "bard",
+  "name": "merkwood",
   "version": "0.0.1",
   "description": "ERC1155 contract for tokenizing artistic works.",
   "main": "index.ts",
@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dmj16/bard.git"
+    "url": "git+https://github.com/dmj16/merkwood.git"
   },
   "keywords": [
     "ethereum",
@@ -28,9 +28,9 @@
   "author": "david josephs",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dmj16/bard/issues"
+    "url": "https://github.com/dmj16/merkwood/issues"
   },
-  "homepage": "https://github.com/dmj16/bard#readme",
+  "homepage": "https://github.com/dmj16/merkwood#readme",
   "devDependencies": {
     "@nomiclabs/buidler": "^1.4.4",
     "@nomiclabs/buidler-ethers": "^2.0.0",
