@@ -14,7 +14,7 @@ Fungibility agnostic contract for unique and semi-unique assets. Contract acts a
 
 ### Usage 👾 🧸 📚 🎥 🎨
 
-Users can spawn new contracts from the factory contract at the below address.
+Users can spawn new contracts from the factory contract at the below address. Toys, collectibles, in game items, books, video, music and art are all semi-unique or fully unique items worth tokenizing to ensure digital scarcity.
 
 Factory Contract Address: rinkeby.etherscan.io/address/0xa89eeb0d82f06e1f0e28d80440eee63e51720a9
 
