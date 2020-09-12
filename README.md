@@ -1,16 +1,47 @@
-# Merkwood 🌲🍄🌳
+# ERC1155 Contract 📄
 
-#### 🧰
+### Technology and Tools 🧰
+
 Node.js | TypeScript | Solidity | OpenZeppelin | Buidler | TypeChain | Ethers | IPFS
 
-#### 👾 🎤 🎥 🎨 📚
-Merkwood is a tokenization service for artists and content creators to securely digitize their art. The name is a reference to Tolkien's magical forest **_Mirkwood_**, but with the "i" swapped with an "e" as a nod to the Merkle Patricia Tree.
+<br>
 
-#### 🔏
-A content creator might use Merkwood to instantiate a **_Bard_**--an ERC1155 multi-token standard contract--in an effort to more substantively control the distribution of their work. Through tokenization, artists can sleep well knowing that their work is scarce and no longer infinitely replicable.
+### Contracts 🔏 🍬
 
-#### 🗳️
-There is a proof-of-concept Rinkeby testnet DAO--AuthorDAO. Each member could proportionally participate in the governance of a service such as a distributed content distribution platform.
+Fungibility agnostic contract for unique and semi-unique assets. Contract acts as a wrapper around valuable asset metadata.
 
-#### 🧪
-Test suite written with mocha and chai.
+<br>
+
+### Usage 👾 🧸 📚 🎥 🎨
+
+Users can spawn new contracts from the factory contract at the below address.
+
+Factory Contract Address: rinkeby.etherscan.io/address/0xa89eeb0d82f06e1f0e28d80440eee63e51720a9
+
+Provide the contract creation function with JSON metadata that has a URI field pointing to the asset's online location.
+
+#### Example Metadata:
+
+```
+{
+  "type": "album",
+  "name": "Father Of The Bride",
+  "description": "Vampire Weekend's fourth studio album. Winner of the Grammy Award for Best Alternative Music Album",
+  "image": "https://assets0.dostuffmedia.com/uploads/aws_asset/aws_asset/867844/c5989562-da57-4314-bac6-d49a05be5123.jpg",
+  "contentURI": /* "example mp4 address" */
+}
+```
+
+<br>
+
+### Contract Tests 🧪
+
+Contract test suite written with mocha, chai, typechain and buidler.
+
+<br>
+
+### DAO 🗳️
+
+Proof-of-concept Rinkeby testnet DAO. Each member could proportionally participate in the governance of a service such as a distributed content distribution platform.
+
+DAO Address: rinkeby.etherscan.io/address/0xfebabe2690083b38bbacf329763a8a4c1f5b0789

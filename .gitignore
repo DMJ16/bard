@@ -9,3 +9,4 @@ package-lock.json
 ipfs/metadata/
 .cache/
 dist/
+client/
