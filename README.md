@@ -14,11 +14,7 @@ Fungibility agnostic contract for unique and semi-unique assets. Contract acts a
 
 ### Usage 👾 🧸 📚 🎥 🎨
 
-Users can spawn new contracts from the factory contract at the below address. Toys, collectibles, in game items, books, video, music and art are all semi-unique or fully unique items worth tokenizing to ensure digital scarcity.
-
-Factory Contract Address: rinkeby.etherscan.io/address/0xa89eeb0d82f06e1f0e28d80440eee63e51720a9
-
-Provide the contract creation function with JSON metadata that has a URI field pointing to the asset's online location.
+Users can spawn new contracts from the factory contract at this [Factory Contract Address](rinkeby.etherscan.io/address/0xa89eeb0d82f06e1f0e28d80440eee63e51720a9). Toys, collectibles, in game items, books, video, music and art are all semi-unique or fully unique items worth tokenizing to ensure digital scarcity. Provide the contract creation function with JSON metadata that has a URI field pointing to the asset's online location.
 
 #### Example Metadata:
 
@@ -44,4 +40,4 @@ Contract test suite written with mocha, chai, typechain and buidler.
 
 Proof-of-concept Rinkeby testnet DAO. Each member could proportionally participate in the governance of a service such as a distributed content distribution platform.
 
-DAO Address: rinkeby.etherscan.io/address/0xfebabe2690083b38bbacf329763a8a4c1f5b0789
+[DAO Address](rinkeby.etherscan.io/address/0xfebabe2690083b38bbacf329763a8a4c1f5b0789)
