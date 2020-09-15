@@ -19,7 +19,6 @@ let walletAddr: string;
 let walletAddr2: string;
 let signers: Signer[];
 let bardAddress: string;
-// let manager: string;
 
 beforeEach(async () => {
   signers = await ethers.getSigners();
@@ -32,7 +31,6 @@ beforeEach(async () => {
   [bardAddress] = await bardFactory.getDeployedBards();
   bard = new ethers.Contract(bardAddress, BardArtifact.abi, wallet);
   bard2 = new ethers.Contract(bardAddress, BardArtifact.abi, wallet2);
-  // manager = await bard.manager();
 });
 
 describe("Bard", () => {
