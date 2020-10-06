@@ -1,22 +1,19 @@
-# ERC1155 Contract 📄
+# 📄 ERC1155 Contract
 
-### Technology and Tools 🧰
-
+## 🧰 Technology and Tools
 Node.js | TypeScript | Solidity | OpenZeppelin | Buidler | TypeChain | Ethers | IPFS
 
 <br>
 
-### Contracts 🔏 🍬
+## 🔏 🍬 Contracts
 
 Fungibility agnostic contract for unique and semi-unique assets. Contract acts as a wrapper around valuable asset metadata.
 
-<br>
-
-### Usage 👾 🧸 📚 🎥 🎨
+## 👾 🧸 🎥 🎨 Usage
 
 Users can spawn new contracts from the factory contract at this [Factory Contract Address](rinkeby.etherscan.io/address/0xa89eeb0d82f06e1f0e28d80440eee63e51720a9). Toys, collectibles, in game items, books, video, music and art are all semi-unique or fully unique items worth tokenizing to ensure digital scarcity. Provide the contract creation function with JSON metadata that has a URI field pointing to the asset's online location.
 
-#### Example Metadata:
+### Example Metadata:
 
 ```
 {
@@ -28,15 +25,11 @@ Users can spawn new contracts from the factory contract at this [Factory Contrac
 }
 ```
 
-<br>
-
-### Contract Tests 🧪
+## 🧪 Contract Tests
 
 Contract test suite written with mocha, chai, typechain and buidler.
 
-<br>
-
-### DAO 🗳️
+### 🗳️ DAO
 
 Proof-of-concept Rinkeby testnet DAO. Each member could proportionally participate in the governance of a service such as a distributed content distribution platform.
 
