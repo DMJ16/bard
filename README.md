@@ -33,4 +33,4 @@ Contract test suite written with mocha, chai, typechain and buidler.
 
 Proof-of-concept Rinkeby testnet DAO. Each member could proportionally participate in the governance of a service such as a distributed content distribution platform.
 
-[DAO Address](rinkeby.etherscan.io/address/0xfebabe2690083b38bbacf329763a8a4c1f5b0789)
+[DAO Address](http://rinkeby.etherscan.io/address/0xfebabe2690083b38bbacf329763a8a4c1f5b0789)
